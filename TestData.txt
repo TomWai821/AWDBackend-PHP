@@ -1,0 +1,17 @@
+For POST method(JSON):
+{
+    "station_id": "999",
+    "NAME_OF_DISTRICT_COUNCIL_DISTRICT_EN": "L",
+    "LOCATION_EN": "L",
+    "ADDRESS_EN": "L",
+    "STANDARD_BS1363_no": 2
+}
+
+For PUT method(JSON):
+{
+    "station_id": "999",
+    "STANDARD_BS1363_no": 2
+}
+
+For Delete method(URL):
+http://localhost:4433/evcharger/restful.php/evcharger/id/EVCS_999

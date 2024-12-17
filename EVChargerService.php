@@ -109,11 +109,6 @@
 
 			try
 			{
-				if($connect -> affected_rows == 0)
-				{
-					message('0002', "Failed to insert data");
-				}
-
 				$result = $connect->query($sql_query);
 				message("0000", "EVCharger with ID ".$dataArray['station_id']." inserted successfully");
 			}
