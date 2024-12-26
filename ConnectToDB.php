@@ -1,12 +1,12 @@
 <?php
-    $server = 'localhost:3307';
+    $server = 'localhost';
 	$user = 'root';
     $password = '';
     $dbName = 'ev_charger_db';
 
-    $connect = mysqli_connect($server, $user, $password, $dbName);
+    $connect = new mysqli($server, $user, $password, $dbName);
 
-    if(!$connect)
+    if($connect -> connect_error)
     {
         die("Database connection failed:". mysqli_connect_error());
     }

@@ -1,9 +1,9 @@
 For POST method(JSON):
 {
     "station_id": "999",
-    "NAME_OF_DISTRICT_COUNCIL_DISTRICT_EN": "L",
-    "LOCATION_EN": "L",
-    "ADDRESS_EN": "L",
+    "district": "L",
+    "location": "L",
+    "address": "L",
     "STANDARD_BS1363_no": 2
 }
 

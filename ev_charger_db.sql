@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3307
--- Generation Time: Dec 17, 2024 at 03:23 AM
+-- Generation Time: Dec 21, 2024 at 12:20 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `evcharger` (
   `station_id` varchar(255) NOT NULL,
-  `NAME_OF_DISTRICT_COUNCIL_DISTRICT_EN` varchar(255) NOT NULL,
-  `LOCATION_EN` varchar(255) NOT NULL,
-  `ADDRESS_EN` varchar(255) NOT NULL,
+  `district` varchar(255) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
   `NAME_OF_DISTRICT_COUNCIL_DISTRICT_TC` varchar(255) DEFAULT NULL,
   `LOCATION_TC` varchar(255) DEFAULT NULL,
   `ADDRESS_TC` varchar(255) DEFAULT NULL,
@@ -57,7 +57,7 @@ CREATE TABLE `evcharger` (
 -- Dumping data for table `evcharger`
 --
 
-INSERT INTO `evcharger` (`station_id`, `NAME_OF_DISTRICT_COUNCIL_DISTRICT_EN`, `LOCATION_EN`, `ADDRESS_EN`, `NAME_OF_DISTRICT_COUNCIL_DISTRICT_TC`, `LOCATION_TC`, `ADDRESS_TC`, `NAME_OF_DISTRICT_COUNCIL_DISTRICT_SC`, `LOCATION_SC`, `ADDRESS_SC`, `STANDARD_BS1363_no`, `MEDIUM_IEC62196_no`, `MEDIUM_SAEJ1772_no`, `MEDIUM_OTHERS_no`, `QUICK_CHAdeMO_no`, `QUICK_CCS_DC_COMBO_no`, `QUICK_IEC62196_no`, `QUICK_GB_T20234_3_DC__no`, `QUICK_OTHERS_no`, `REMARK_FOR__OTHERS_`, `DATA_PATH`, `geometry_coordinates_Latitude`, `geometry_coordinates_Longitude`) VALUES
+INSERT INTO `evcharger` (`station_id`, `district`, `location`, `address`, `NAME_OF_DISTRICT_COUNCIL_DISTRICT_TC`, `LOCATION_TC`, `ADDRESS_TC`, `NAME_OF_DISTRICT_COUNCIL_DISTRICT_SC`, `LOCATION_SC`, `ADDRESS_SC`, `STANDARD_BS1363_no`, `MEDIUM_IEC62196_no`, `MEDIUM_SAEJ1772_no`, `MEDIUM_OTHERS_no`, `QUICK_CHAdeMO_no`, `QUICK_CCS_DC_COMBO_no`, `QUICK_IEC62196_no`, `QUICK_GB_T20234_3_DC__no`, `QUICK_OTHERS_no`, `REMARK_FOR__OTHERS_`, `DATA_PATH`, `geometry_coordinates_Latitude`, `geometry_coordinates_Longitude`) VALUES
 ('EVCS_1', 'Central & Western', 'The Peak Galleria', '118 Peak Rd, The Peak', '中西區', '山頂廣場', '山頂道118號', '中西区', '山顶广场', '山顶道118号', 0, 3, 0, 0, 0, 0, 0, 0, 2, 'Tesla Wall Connector', '-', 22.2705, 114.149),
 ('EVCS_10', 'Central & Western', 'TWO IFC (International Finance Centre) - IFC II', 'FINANCE STREET, CENTRAL & WESTERN', '中西區', '國際金融中心二期', '中西區 金融街', '中西区', '国际金融中心二期', '中西区 金融街', 0, 0, 0, 0, 3, 3, 20, 0, 3, '-', '-', 22.2859, 114.158),
 ('EVCS_100', 'Southern', 'MARINA HABITAT', 'YUET HOI STREET, SOUTHERN', '南區', '悅海華庭', '南區 悅海街', '南区', '悦海华庭', '南区 悦海街', 0, 5, 0, 0, 0, 0, 0, 0, 0, '-', '-', 22.2443, 114.155),
@@ -285,7 +285,7 @@ INSERT INTO `evcharger` (`station_id`, `NAME_OF_DISTRICT_COUNCIL_DISTRICT_EN`, `
 ('EVCS_300', 'Wong Tai Sin', 'Lok Fu Estate', '196 Junction Road Wang Tau Hom', '黃大仙區', '樂富邨', '橫頭磡聯合道196號', '黄大仙区', '乐富邨', '横头磡联合道196号', 0, 8, 0, 0, 0, 0, 0, 0, 0, '-', '-', 22.3354, 114.187),
 ('EVCS_301', 'Wong Tai Sin', 'Tung Tau II Car Park A', 'Tung Tau Estate Retail and Car Park, 183 Tung Tau Tsuen Road, Wong Tai Sin, Kowloon', '黃大仙區', '東頭二(A)停車場', '九龍黃大仙東頭村道183號東頭邨商舖及停車場', '黄大仙区', '东头二(A)停车场', '九龙黄大仙东头村道183号东头邨商舖及停车场', 0, 9, 0, 0, 0, 0, 0, 0, 0, '-', '-', 22.3352, 114.193),
 ('EVCS_302', 'Wong Tai Sin', 'Tung Tau II Car Park B', '183 Tung Tau Tsuen Rd, Chuk Un', '黃大仙區', '東頭二(B)停車場', '竹園東頭村道183號東頭邨商舖及停車場', '黄大仙区', '东头二(B)停车场', '竹园东头村道183号东头邨商铺及停车场', 0, 0, 0, 0, 0, 0, 9, 0, 0, '-', '-', 22.3345, 114.193);
-INSERT INTO `evcharger` (`station_id`, `NAME_OF_DISTRICT_COUNCIL_DISTRICT_EN`, `LOCATION_EN`, `ADDRESS_EN`, `NAME_OF_DISTRICT_COUNCIL_DISTRICT_TC`, `LOCATION_TC`, `ADDRESS_TC`, `NAME_OF_DISTRICT_COUNCIL_DISTRICT_SC`, `LOCATION_SC`, `ADDRESS_SC`, `STANDARD_BS1363_no`, `MEDIUM_IEC62196_no`, `MEDIUM_SAEJ1772_no`, `MEDIUM_OTHERS_no`, `QUICK_CHAdeMO_no`, `QUICK_CCS_DC_COMBO_no`, `QUICK_IEC62196_no`, `QUICK_GB_T20234_3_DC__no`, `QUICK_OTHERS_no`, `REMARK_FOR__OTHERS_`, `DATA_PATH`, `geometry_coordinates_Latitude`, `geometry_coordinates_Longitude`) VALUES
+INSERT INTO `evcharger` (`station_id`, `district`, `location`, `address`, `NAME_OF_DISTRICT_COUNCIL_DISTRICT_TC`, `LOCATION_TC`, `ADDRESS_TC`, `NAME_OF_DISTRICT_COUNCIL_DISTRICT_SC`, `LOCATION_SC`, `ADDRESS_SC`, `STANDARD_BS1363_no`, `MEDIUM_IEC62196_no`, `MEDIUM_SAEJ1772_no`, `MEDIUM_OTHERS_no`, `QUICK_CHAdeMO_no`, `QUICK_CCS_DC_COMBO_no`, `QUICK_IEC62196_no`, `QUICK_GB_T20234_3_DC__no`, `QUICK_OTHERS_no`, `REMARK_FOR__OTHERS_`, `DATA_PATH`, `geometry_coordinates_Latitude`, `geometry_coordinates_Longitude`) VALUES
 ('EVCS_303', 'Wong Tai Sin', 'King Lai Court', '36-38 Fung Shing St, Hammer Hill', '黃大仙區', '瓊麗苑', '斧山豐盛街36-38號', '黄大仙区', '琼丽苑', '斧山丰盛街36-38号', 0, 12, 0, 0, 0, 0, 0, 0, 0, '-', '-', 22.3416, 114.211),
 ('EVCS_304', 'Wong Tai Sin', 'Tsz Man Estate', '55 Tsz Wan Shan Rd, Tsz Wan Shan', '黃大仙區', '慈民邨', '慈雲山慈雲山道55號', '黄大仙区', '慈民邨', '慈云山慈云山道55号', 0, 17, 0, 0, 0, 0, 0, 0, 0, '-', '-', 22.3485, 114.203),
 ('EVCS_305', 'Wong Tai Sin', 'Bel Air Heights', 'LUNG POON STREET, WONG TAI SIN', '黃大仙區', '悅庭軒', '黃大仙 龍蟠街', '黄大仙区', '悦庭轩', '黄大仙 龙蟠街', 0, 1, 0, 0, 0, 0, 0, 0, 0, '-', '-', 22.342, 114.202),
@@ -515,7 +515,7 @@ INSERT INTO `evcharger` (`station_id`, `NAME_OF_DISTRICT_COUNCIL_DISTRICT_EN`, `
 ('EVCS_507', 'Tai Po', 'Kwong Fuk Park', 'Kwong Chun Street, Tai Po', '大埔區', '廣福公園停車場', '大埔廣進街', '大埔区', '广福公园停车场', '大埔广进街', 0, 5, 0, 0, 0, 0, 0, 0, 0, '-', 'https://ev-charger.epd.gov.hk/resource/ev_charger_avail/ev_charger_avail.json', 22.4455, 114.175),
 ('EVCS_508', 'Tai Po', 'Fu Tip Estate', 'Choi Tip Street; near Ban Tip House ', '大埔區', '富蝶邨', '彩蝶街，近斑蝶樓', '大埔区', '富蝶邨', '彩蝶街，近斑蝶楼', 3, 0, 0, 0, 0, 0, 0, 0, 0, '-', '-', 22.4616, 114.174),
 ('EVCS_509', 'Tai Po', 'Tai Po Tung Cheong Street Leisure Building', 'Tung Cheung Street, Tai Po Market, Tai Po, New Territories', '大埔區', '大埔東昌街康體大樓', '新界大埔大埔墟東昌街', '大埔区', '大埔东昌街康体大楼', '新界大埔大埔墟东昌街', 0, 60, 0, 0, 0, 0, 0, 0, 0, '-', '-', 22.4495, 114.17);
-INSERT INTO `evcharger` (`station_id`, `NAME_OF_DISTRICT_COUNCIL_DISTRICT_EN`, `LOCATION_EN`, `ADDRESS_EN`, `NAME_OF_DISTRICT_COUNCIL_DISTRICT_TC`, `LOCATION_TC`, `ADDRESS_TC`, `NAME_OF_DISTRICT_COUNCIL_DISTRICT_SC`, `LOCATION_SC`, `ADDRESS_SC`, `STANDARD_BS1363_no`, `MEDIUM_IEC62196_no`, `MEDIUM_SAEJ1772_no`, `MEDIUM_OTHERS_no`, `QUICK_CHAdeMO_no`, `QUICK_CCS_DC_COMBO_no`, `QUICK_IEC62196_no`, `QUICK_GB_T20234_3_DC__no`, `QUICK_OTHERS_no`, `REMARK_FOR__OTHERS_`, `DATA_PATH`, `geometry_coordinates_Latitude`, `geometry_coordinates_Longitude`) VALUES
+INSERT INTO `evcharger` (`station_id`, `district`, `location`, `address`, `NAME_OF_DISTRICT_COUNCIL_DISTRICT_TC`, `LOCATION_TC`, `ADDRESS_TC`, `NAME_OF_DISTRICT_COUNCIL_DISTRICT_SC`, `LOCATION_SC`, `ADDRESS_SC`, `STANDARD_BS1363_no`, `MEDIUM_IEC62196_no`, `MEDIUM_SAEJ1772_no`, `MEDIUM_OTHERS_no`, `QUICK_CHAdeMO_no`, `QUICK_CCS_DC_COMBO_no`, `QUICK_IEC62196_no`, `QUICK_GB_T20234_3_DC__no`, `QUICK_OTHERS_no`, `REMARK_FOR__OTHERS_`, `DATA_PATH`, `geometry_coordinates_Latitude`, `geometry_coordinates_Longitude`) VALUES
 ('EVCS_51', 'Eastern', 'Berkshire House', '25 Westlands Road, Quarry Bay, Hong Kong', '東區', '柏克大廈', '香港鰂魚涌華蘭路25號', '东区', '柏克大厦', '香港鰂鱼涌华兰路25号', 0, 0, 0, 0, 0, 0, 2, 0, 0, '-', '-', 22.2876, 114.213),
 ('EVCS_510', 'Tai Po', 'Ming Nga Court', '7 On Po Ln, Tai Po', '大埔區', '明雅苑', '安保里7號', '大埔区', '明雅苑', '安保里7号', 0, 12, 0, 0, 0, 0, 0, 0, 0, '-', '-', 22.4525, 114.175),
 ('EVCS_511', 'Tai Po', 'Richwood Park', '33, Lo Fai Rd, Tai Po', '大埔區', '嘉豐花園', '大埔露輝路33號', '大埔区', '嘉丰花园', '大埔露辉路33号', 0, 16, 0, 0, 0, 2, 0, 0, 0, '-', '-', 22.464, 114.195),
@@ -729,8 +729,7 @@ INSERT INTO `evcharger` (`station_id`, `NAME_OF_DISTRICT_COUNCIL_DISTRICT_EN`, `
 ('EVCS_96', 'Southern', 'Landmark South', '39 Yip Kan St ', '南區', 'Landmark South', '黃竹坑業勤街39號', '南区', 'Landmark South', '黄竹坑业勤街39号', 0, 110, 0, 0, 2, 2, 0, 0, 3, 'Tesla Supercharger', '-', 22.2493, 114.167),
 ('EVCS_97', 'Southern', 'RED HILL PLAZA', 'RED HILL ROAD, SOUTHERN', '南區', '紅山廣場', '南區 紅山道', '南区', '红山广场', '南区 红山道', 0, 0, 0, 2, 0, 0, 0, 0, 0, 'Tesla Wall Connector', '-', 22.2365, 114.223),
 ('EVCS_98', 'Southern', 'The Southside', '11 Heung Yip Rd, Wong Chuk Hang', '南區', 'The Southside', '黃竹坑香葉道11號', '南区', 'The Southside', '黄竹坑香叶道11号', 0, 0, 0, 232, 0, 0, 0, 0, 3, 'Tesla Supercharger', '-', 22.2472, 114.166),
-('EVCS_99', 'Southern', 'S22', '22 Heung Yip Rd', '南區', 'S22', '香葉道22號', '南区', 'S22', '香叶道22号', 0, 0, 0, 0, 2, 2, 2, 0, 0, '-', '-', 22.2478, 114.166),
-('EVCS_999', 'L', 'hi', 'hi', NULL, NULL, NULL, NULL, NULL, NULL, 2, 0, 0, 0, 0, 0, 0, 0, 0, '-', NULL, 0, 0);
+('EVCS_99', 'Southern', 'S22', '22 Heung Yip Rd', '南區', 'S22', '香葉道22號', '南区', 'S22', '香叶道22号', 0, 0, 0, 0, 2, 2, 2, 0, 0, '-', '-', 22.2478, 114.166);
 
 --
 -- Indexes for dumped tables

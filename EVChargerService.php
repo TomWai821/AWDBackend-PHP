@@ -34,15 +34,15 @@
 						{
 							message("1001", "Please input the address!");
 						}
-						$sql_query .= "WHERE ADDRESS_EN LIKE '%$value%'";
+						$sql_query .= "WHERE address LIKE '%$value%'";
 						break;
 					
 					case "district":
 						if($value == null)
 						{
-							message("1002", "Please input the district!");
+							message("1001", "Please input the district!");
 						}
-						$sql_query .= "WHERE NAME_OF_DISTRICT_COUNCIL_DISTRICT_EN = '$value'";
+						$sql_query .= "WHERE district = '$value'";
 						break;
 					
 					default:
@@ -54,6 +54,12 @@
 			try 
 			{ 
 				$result = $connect->query($sql_query); 
+
+			if ($result === false)
+			{ 
+				// Handle query error 
+				throw new Exception("Query error: " . $connect->error);
+			}
 				$output = array();
 
 				$output_message = $result->num_rows." EV Charger records retrieved";
@@ -84,9 +90,9 @@
 			$station_id = GetStationID($dataArray);
 
 			$requireDataMap = array(
-				'NAME_OF_DISTRICT_COUNCIL_DISTRICT_EN' => $dataArray['NAME_OF_DISTRICT_COUNCIL_DISTRICT_EN'] ?? null,
-				'LOCATION_EN' => $dataArray['LOCATION_EN'] ?? null,
-				'ADDRESS_EN' => $dataArray['ADDRESS_EN'] ?? null
+				'district' => $dataArray['district'] ?? null,
+				'location' => $dataArray['location'] ?? null,
+				'address' => $dataArray['address'] ?? null
 			);
 
 			foreach($requireDataMap as $requireData)
@@ -99,7 +105,7 @@
 
 			$requireDataMap = array_merge($station_id, $requireDataMap);
 			
-			// Put other data to otherDataMap (exclude station_id, NAME_OF_DISTRICT_COUNCIL_DISTRICT_EN, LOCATION_EN and ADDRESS_EN)
+			// Put other data to otherDataMap (exclude station_id, district, location and address)
 			$otherDataMap = BuildOtherDataMap($dataArray);
 			$combineDataMap = array_merge($requireDataMap, $otherDataMap);
 
@@ -127,9 +133,9 @@
 			
 			// This is not required in PUT method (User may not update data about location, address, and district)
 			$fieldsToUpdate = [ 
-				'NAME_OF_DISTRICT_COUNCIL_DISTRICT_EN' => $dataArray['NAME_OF_DISTRICT_COUNCIL_DISTRICT_EN'] ?? null,
-				'LOCATION_EN' => $dataArray['LOCATION_EN'] ?? null,
-				'ADDRESS_EN' => $dataArray['ADDRESS_EN'] ?? null
+				'district' => $dataArray['district'] ?? null,
+				'location' => $dataArray['location'] ?? null,
+				'address' => $dataArray['address'] ?? null
 			]; 
 			
 			$addressDataMap = array();
@@ -146,7 +152,7 @@
 				}
 			}
 			
-			// Put other data to otherDataMap (exclude station_id, NAME_OF_DISTRICT_COUNCIL_DISTRICT_EN, LOCATION_EN and ADDRESS_EN)
+			// Put other data to otherDataMap (exclude station_id, district, location and address)
 			$otherDataMap = BuildOtherDataMap($dataArray);
 
 			if($addressDataMap != null)
