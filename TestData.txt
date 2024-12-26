@@ -1,3 +1,6 @@
+For GET method(URL):
+http://localhost/evcharger/restful.php/evcharger/
+
 For POST method(JSON):
 {
     "station_id": "999",
@@ -14,4 +17,4 @@ For PUT method(JSON):
 }
 
 For Delete method(URL):
-http://localhost:4433/evcharger/restful.php/evcharger/id/EVCS_999
+http://localhost/evcharger/restful.php/evcharger/id/EVCS_999
