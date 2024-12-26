@@ -1,5 +1,7 @@
 For GET method(URL):
 http://localhost/evcharger/restful.php/evcharger/
+http://localhost:4433/evCharger/restful.php/evcharger/district/Eastern
+http://localhost:4433/evCharger/restful.php/evcharger/address/A
 
 For POST method(JSON):
 {
@@ -14,6 +16,13 @@ For PUT method(JSON):
 {
     "station_id": "999",
     "STANDARD_BS1363_no": 2
+}
+
+{
+    "station_id": "999",
+    "STANDARD_BS1363_no": 2,
+    "geometry_coordinates_Latitude": "22.2867",
+    "geometry_coordinates_Longitude": "114.217"
 }
 
 For Delete method(URL):

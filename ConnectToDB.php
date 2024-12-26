@@ -1,5 +1,5 @@
 <?php
-    $server = 'localhost';
+    $server = 'localhost:3307';
 	$user = 'root';
     $password = '';
     $dbName = 'ev_charger_db';

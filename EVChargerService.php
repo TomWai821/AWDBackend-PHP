@@ -1,7 +1,7 @@
 <?php
-
 	header('Content-Type: application/json; charset=utf-8');
 	header("Access-Control-Allow-Origin: *");
+	header("Access-Control-Allow-Methods: *");
 	header("Access-Control-Allow-Headers: *");
 
 	include_once("MessageHandler.php");
@@ -55,14 +55,14 @@
 			{ 
 				$result = $connect->query($sql_query); 
 
-			if ($result === false)
-			{ 
-				// Handle query error 
-				throw new Exception("Query error: " . $connect->error);
-			}
-				$output = array();
+				if ($result === false) 
+				{ 
+					// Handle query error 
+					throw new Exception("Query error: " . $connect->error);
+				}
 
 				$output_message = $result->num_rows." EV Charger records retrieved";
+				$output = array();
 
 				while($row = $result->fetch_assoc()) 
 				{ 
