@@ -1,4 +1,5 @@
 For GET method(URL):
+<<<<<<< HEAD
 http://localhost:4433/evcharger/restful.php/evcharger/
 http://localhost:4433/evCharger/restful.php/evcharger/district/Eastern
 http://localhost:4433/evCharger/restful.php/evcharger/district/distinct
@@ -120,3 +121,33 @@ alter table evcharger AUTO_INCREMENT = 0
 
 remarks: station_id are auto_increasement and update while get, please use select query after get data
 
+=======
+http://localhost/evcharger/restful.php/evcharger/
+http://localhost:4433/evCharger/restful.php/evcharger/district/Eastern
+http://localhost:4433/evCharger/restful.php/evcharger/address/A
+
+For POST method(JSON):
+{
+    "station_id": "999",
+    "district": "L",
+    "location": "L",
+    "address": "L",
+    "STANDARD_BS1363_no": 2
+}
+
+For PUT method(JSON):
+{
+    "station_id": "999",
+    "STANDARD_BS1363_no": 2
+}
+
+{
+    "station_id": "999",
+    "STANDARD_BS1363_no": 2,
+    "geometry_coordinates_Latitude": "22.2867",
+    "geometry_coordinates_Longitude": "114.217"
+}
+
+For Delete method(URL):
+http://localhost/evcharger/restful.php/evcharger/id/EVCS_999
+>>>>>>> 01b3c0212c4a7d3fdeaf0bbf1855c680ad0f7890
