@@ -1,0 +1,122 @@
+For GET method(URL):
+http://localhost:4433/evcharger/restful.php/evcharger/
+http://localhost:4433/evCharger/restful.php/evcharger/district/Eastern
+http://localhost:4433/evCharger/restful.php/evcharger/district/distinct
+http://localhost:4433/evCharger/restful.php/evcharger/address/A
+http://localhost:4433/evCharger/restful.php/evcharger/address/aaaaa
+http://localhost:4433/evCharger/restful.php/evcharger/type/a
+http://localhost:4433/evCharger/restful.php/evcharger/type/quick
+http://localhost:4433/evCharger/restful.php/evcharger/type/quick/QUICK_CHAdeMO_no
+http://localhost:4433/evCharger/restful.php/evcharger/remark
+http://localhost:4433/evCharger/restful.php/evcharger/remark/connector
+http://localhost:4433/evCharger/restful.php/evcharger/remark/supercharger
+http://localhost:4433/evCharger/restful.php/evcharger/remark/Tesla
+
+For POST method(JSON):
+{
+    "district": "L",
+    "location": "L",
+    "address": "L",
+    "REMARK_FOR__OTHERS_" : "-",
+    "geometry_coordinates_Latitude": "114.514",
+    "geometry_coordinates_Longitude": "114.514"
+}
+
+{
+    "district": "L",
+    "location": "L",
+    "address": "L",
+    "STANDARD_BS1363_no": 2,
+    "MEDIUM_IEC62196_no": 1,
+    "MEDIUM_SAEJ1772_no": 1,
+    "MEDIUM_OTHERS_no": 1,
+    "QUICK_CHAdeMO_no": 1,
+    "QUICK_CCS_DC_COMBO_no": 1,
+    "QUICK_IEC62196_no": 1,
+    "QUICK_GB_T20234_3_DC__no":1 ,
+    "QUICK_OTHERS_no" : 1,
+    "REMARK_FOR__OTHERS_" : "-",
+    "geometry_coordinates_Latitude": "114.514",
+    "geometry_coordinates_Longitude": "114.514"
+}
+
+
+{
+    "district": "L",
+    "location": "L",
+    "address": "L",
+    "STANDARD_BS1363_no": 2,
+    "MEDIUM_OTHERS_no": 1,
+    "QUICK_CHAdeMO_no": 1,
+}
+
+For POST error:
+{
+    "district": "L",
+    "location": "L",
+    "address": "L",
+    "STANDARD_BS1363_no": 1,
+    "MEDIUM_OTHERS_no": "L",
+    "QUICK_CHAdeMO_no": 1,
+}
+
+Search the record don't have any charger:
+select * from evcharger where 
+(STANDARD_BS1363_no = 0) AND
+(MEDIUM_IEC62196_no = 0) AND
+(MEDIUM_SAEJ1772_no = 0) AND
+(MEDIUM_OTHERS_no = 0) AND
+(QUICK_CHAdeMO_no = 0) AND
+(QUICK_CCS_DC_COMBO_no = 0) AND
+(QUICK_IEC62196_no = 0) AND
+(QUICK_GB_T20234_3_DC__no = 0) AND
+(QUICK_OTHERS_no = 0)
+
+
+For PUT method(JSON):
+{
+    "station_id": "EVCS_672",
+    "STANDARD_BS1363_no": 10,
+    "MEDIUM_IEC62196_no": 10,
+    "MEDIUM_SAEJ1772_no": 10,
+    "MEDIUM_OTHERS_no": 10,
+    "QUICK_CHAdeMO_no": 10,
+    "QUICK_CCS_DC_COMBO_no": 10,
+    "QUICK_IEC62196_no": 10,
+    "QUICK_GB_T20234_3_DC__no":10,
+    "QUICK_OTHERS_no" : 10,
+    "geometry_coordinates_Latitude": "114.00",
+    "geometry_coordinates_Longitude": "514.00",
+    "REMARK_FOR__OTHERS_" : "F"
+}
+
+
+Search above record is updated/created or not:
+select * from evcharger where district = "L";
+
+For Delete method(URL):
+http://localhost:4433/evcharger/restful.php/evcharger/id/
+http://localhost:4433/evcharger/restful.php/evcharger/id/EVCS_997
+http://localhost:4433/evCharger/restful.php/evcharger/district/L
+
+Types of charge
+standard:
+STANDARD_BS1363_no
+
+medium:
+MEDIUM_IEC62196_no
+MEDIUM_SAEJ1772_no
+MEDIUM_OTHERS_no
+
+quick:
+QUICK_CHAdeMO_no
+QUICK_CCS_DC_COMBO_no
+QUICK_IEC62196_no
+QUICK_GB_T20234_3_DC__no
+QUICK_OTHERS_no
+
+Reset Auto increasement:
+alter table evcharger AUTO_INCREMENT = 0
+
+remarks: station_id are auto_increasement and update while get, please use select query after get data
+
